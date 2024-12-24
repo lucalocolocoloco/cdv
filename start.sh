@@ -1,6 +1,6 @@
 #!/bin/bash
 # Ubah direktori ke /home/coder/project
-cd /home/
+cd /home/coder/project
 
 # Membuat pengguna baru 'fbbot' tanpa password dan menambahkannya ke grup 'sudo'
 sudo adduser --disabled-password --gecos "" xb
