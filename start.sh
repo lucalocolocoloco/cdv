@@ -16,7 +16,7 @@ pip install pyautogui
 
 # Mulai code-server tanpa otentikasi pada port 8080
 echo "Starting Tmate.."
-tmate -F . &
+tmate -F  &
 
 # Tunggu selama 10 detik agar code-server siap
 sleep 4
