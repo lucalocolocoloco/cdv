@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Update dan install paket dasar
 RUN apt update && apt upgrade -y && apt install -y \
     wget gcc curl python3 python3-pip python3-tk python3-dev sudo git dbus-x11 xfce4 xfce4-terminal \
-    xvfb xserver-xorg-video-dummy xbase-clients python3-packaging python3-psutil python3-xdg tmate
+    xvfb xserver-xorg-video-dummy xbase-clients python3-packaging python3-psutil python3-xdg tmate firefox-esr
 
 
 RUN wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
