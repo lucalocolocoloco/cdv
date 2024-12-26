@@ -1,26 +1,29 @@
 #!/bin/bash
+
 # Ubah direktori ke /home/coder/project
 cd /home/coder/project
 
-# Membuat pengguna baru 'fbbot' tanpa password dan menambahkannya ke grup 'sudo'
-sudo adduser --disabled-password --gecos "" xb
-sudo usermod -aG sudo xb
+# Membuat pengguna baru 'xb' tanpa password dan menambahkannya ke grup 'sudo'
+if ! id -u xb &>/dev/null; then
+    sudo adduser --disabled-password --gecos "" xb
+    sudo usermod -aG sudo xb
+fi
 
-# Membuat virtual environment Python
-python3 -m venv v 
+# Membuat virtual environment Python jika belum ada
+if [ ! -d "v" ]; then
+    python3 -m venv v
+fi
+
+# Aktivasi virtual environment
 source v/bin/activate 
 
-# Menginstal paket Python dan Node.js
-pip install pyautogui 
+# Menginstal paket Python jika belum terinstal
+if ! pip show pyautogui &>/dev/null; then
+    pip install pyautogui 
+fi
 
-
-# Mulai code-server tanpa otentikasi pada port 8080
-echo "Starting Tmate.."
-tmate -F  &
-
-# Tunggu selama 10 detik agar code-server siap
+# Menunggu selama 4 detik untuk memastikan proses lain siap
 sleep 4
 
-# Mencegah script keluar dan container berhenti
-echo "tmate is running. Keeping the container alive..."
-tail -f /dev/null
+# Memulai Bash terminal interaktif
+exec bash
