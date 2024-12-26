@@ -1,4 +1,4 @@
-FROM debian:slim
+FROM debian:bullseye-slim
 
 ARG REGION=ap
 ENV DEBIAN_FRONTEND=noninteractive
