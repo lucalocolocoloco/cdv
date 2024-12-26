@@ -26,4 +26,4 @@ fi
 sleep 4
 
 # Memulai Bash terminal interaktif
-exec bash
+exec /bin/bash
